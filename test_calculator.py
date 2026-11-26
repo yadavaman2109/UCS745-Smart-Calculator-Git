@@ -16,8 +16,9 @@ class TestCalculator(unittest.TestCase):
             calculator.divide(10, 0)
 
     def test_format_result(self):
-        output = calculator.format_result("add", 2, 3, 5)
-        self.assertIn("5", output)
+        output = calculator.format_result("divide", 22, 7, 22 / 7, precision=3)
+        self.assertIn("[LOG]", output)
+        self.assertIn("3.143", output)
 
 
 if __name__ == "__main__":

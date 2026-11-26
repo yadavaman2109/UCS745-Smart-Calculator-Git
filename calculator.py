@@ -25,18 +25,19 @@ def divide(a: float, b: float) -> float:
 
 def get_supported_operations() -> list[str]:
     """Return the list of supported calculator operations."""
-    return ["add", "subtract", "multiply", "divide"]
+    return ["add", "subtract", "multiply", "divide"]  # Core arithmetic set
 
 
-def format_result(operation: str, a: float, b: float, result: float) -> str:
-    """Format a calculation result for display."""
-    return f"Result [{operation}]: {a} and {b} => {result}"
+def format_result(operation: str, a: float, b: float, result: float, precision: int = 2) -> str:
+    """Format a calculation result with configurable decimal precision."""
+    rounded_val = round(result, precision)
+    return f"[LOG] {operation}: {a} & {b} -> {rounded_val:.{precision}f}"
 
 
 def main() -> None:
-    print("=== Smart CLI Calculator v1.0 ===")
+    print("=== Smart CLI Calculator v1.1 (Precision Logging Edition) ===")
     print("Supported operations:", ", ".join(get_supported_operations()))
-    sample = format_result("add", 12, 8, add(12, 8))
+    sample = format_result("divide", 22, 7, divide(22, 7), precision=3)
     print(sample)
 
 

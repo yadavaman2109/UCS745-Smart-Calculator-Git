@@ -6,9 +6,9 @@
 A lightweight Python CLI calculator created to demonstrate Git & GitHub version control workflows, branching, merging, and intentional merge conflict resolution.
 
 ## Current Version & Features
-- **Version:** `1.0.0`
-- **Operations:** `add`, `subtract`, `multiply`, `divide`
-- **Output Format:** Standard unrounded display
+- **Version:** `1.1.0 (Precision Logging Edition)`
+- **Operations:** `add`, `subtract`, `multiply`, `divide` (with rounding)
+- **Output Format:** Configurable decimal precision (`[LOG] op: a & b -> val`)
 
 ## Usage
 ```bash
