@@ -15,9 +15,14 @@ class TestCalculator(unittest.TestCase):
         with self.assertRaises(ValueError):
             calculator.divide(10, 0)
 
+    def test_scientific_operations(self):
+        self.assertEqual(calculator.power(2, 5), 32)
+        self.assertEqual(calculator.modulus(17, 5), 2)
+
     def test_format_result(self):
-        output = calculator.format_result("add", 2, 3, 5)
-        self.assertIn("5", output)
+        output = calculator.format_result("power", 2, 3, 8)
+        self.assertIn("[SCIENTIFIC]", output)
+        self.assertIn("8", output)
 
 
 if __name__ == "__main__":

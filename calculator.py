@@ -23,20 +23,32 @@ def divide(a: float, b: float) -> float:
     return a / b
 
 
+def power(a: float, b: float) -> float:
+    """Return a raised to the power b."""
+    return a ** b
+
+
+def modulus(a: float, b: float) -> float:
+    """Return the remainder of a divided by b."""
+    if b == 0:
+        raise ValueError("Cannot compute modulus with zero divisor.")
+    return a % b
+
+
 def get_supported_operations() -> list[str]:
     """Return the list of supported calculator operations."""
-    return ["add", "subtract", "multiply", "divide"]
+    return ["add", "subtract", "multiply", "divide", "power", "modulus"]
 
 
 def format_result(operation: str, a: float, b: float, result: float) -> str:
     """Format a calculation result for display."""
-    return f"Result [{operation}]: {a} and {b} => {result}"
+    return f"[SCIENTIFIC] {operation.upper()}({a}, {b}) = {result}"
 
 
 def main() -> None:
-    print("=== Smart CLI Calculator v1.0 ===")
+    print("=== Smart CLI Calculator v1.1 (Scientific Edition) ===")
     print("Supported operations:", ", ".join(get_supported_operations()))
-    sample = format_result("add", 12, 8, add(12, 8))
+    sample = format_result("power", 2, 5, power(2, 5))
     print(sample)
 
 
