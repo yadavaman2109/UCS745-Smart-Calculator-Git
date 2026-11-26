@@ -20,9 +20,12 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(calculator.modulus(17, 5), 2)
 
     def test_format_result(self):
-        output = calculator.format_result("power", 2, 3, 8)
-        self.assertIn("[SCIENTIFIC]", output)
-        self.assertIn("8", output)
+        sci_out = calculator.format_result("power", 2, 3, 8, precision=0)
+        self.assertIn("[LOG]", sci_out)
+        self.assertIn("POWER(2, 3) -> 8", sci_out)
+
+        prec_out = calculator.format_result("divide", 22, 7, 22 / 7, precision=3)
+        self.assertIn("DIVIDE(22, 7) -> 3.143", prec_out)
 
 
 if __name__ == "__main__":

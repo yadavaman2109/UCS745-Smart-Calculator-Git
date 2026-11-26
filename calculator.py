@@ -40,16 +40,17 @@ def get_supported_operations() -> list[str]:
     return ["add", "subtract", "multiply", "divide", "power", "modulus"]
 
 
-def format_result(operation: str, a: float, b: float, result: float) -> str:
-    """Format a calculation result for display."""
-    return f"[SCIENTIFIC] {operation.upper()}({a}, {b}) = {result}"
+def format_result(operation: str, a: float, b: float, result: float, precision: int = 2) -> str:
+    """Format a calculation result with scientific label and configurable decimal precision."""
+    rounded_val = round(result, precision)
+    return f"[LOG] {operation.upper()}({a}, {b}) -> {rounded_val:.{precision}f}"
 
 
 def main() -> None:
-    print("=== Smart CLI Calculator v1.1 (Scientific Edition) ===")
+    print("=== Smart CLI Calculator v1.2 (Scientific + Precision Edition) ===")
     print("Supported operations:", ", ".join(get_supported_operations()))
-    sample = format_result("power", 2, 5, power(2, 5))
-    print(sample)
+    print(format_result("power", 2, 5, power(2, 5), precision=0))
+    print(format_result("divide", 22, 7, divide(22, 7), precision=3))
 
 
 if __name__ == "__main__":
